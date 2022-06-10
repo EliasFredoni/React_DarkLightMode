@@ -1,23 +1,14 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [light, setLight] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{ color: light ? 'black' : 'white', backgroundColor: light ? 'white' : 'black' }}>
+      <p>{light ? 'LIGHT' : 'DARK'}</p>
+      <button onClick={() => setLight(!light)}>Change to {light ? 'Darkmode' : 'Lightmode'}</button>
     </div>
   );
 }
